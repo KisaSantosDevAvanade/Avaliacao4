@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Tarefa>
+
+<h2>Lista de Tarefas Concluidas</h2>
+
+<p>
+    <a asp-action="Create">Adicionar Cliente</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tarefa</th>
+            <th>Status</th>
+            <th>Inicio</th>
+            <th>Conclusão</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tarefa in Model)
+        {
+            if (tarefa.StatusTarefa == true)
+            {
+                <tr>
+                <td>@tarefa.TarefaId</td>
+                <td>@tarefa.TarefaNome</td>
+                <td>@tarefa.StatusTarefa</td>
+                <td>@tarefa.InicioTarefa</td>
+                <td>@tarefa.ConclusaoTarefa</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@tarefa.TarefaId">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@tarefa.TarefaId">Deletar</a>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>
