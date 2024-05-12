@@ -1,0 +1,45 @@
+﻿@model Tarefa
+@{
+    ViewData["Title"] = "Details de Tarefas";
+}
+
+<h1 class="mt-3">Detalhes de Tarefas</h1>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            ID:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TarefaId
+        </dd>
+        <dt class="col-sm-2">
+            Nome:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TarefaNome
+        </dd>
+        <dt class="col-sm-2">
+            Status:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.StatusTarefa
+        </dd>
+        <dt class="col-sm-2">
+            Data de Início:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.InicioTarefa
+        </dd>
+        <dt class="col-sm-2">
+            Data de Conclusão:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ConclusaoTarefa
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TarefaId" class="btn btn-primary mt-2" style="text-decoration: none;">Editar</a>
+    <a asp-action="Index" class="btn btn-light mt-2" style="text-decoration: none;">Voltar</a>
+</div>

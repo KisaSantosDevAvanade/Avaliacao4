@@ -14,15 +14,12 @@
         <input asp-for="TarefaNome" class="form-control" />
         <span asp-validation-for="TarefaNome" class="text-danger"></span>
     </div>
-    <div class="form-check form-switch">
-        <label asp-for="StatusTarefa" class="control-label"></label>
-        <input asp-for="StatusTarefa" class="form-control" />
-        <span asp-validation-for="StatusTarefa" class="text-danger"></span>
-    </div>
-    <div class="form-check">
-        <label asp-for="ConclusaoTarefa" class="control-label"></label>
-        <input asp-for="ConclusaoTarefa" class="form-control" />
-        <span asp-validation-for="ConclusaoTarefa" class="text-danger"></span>
+    <div class="form-group mb-3">
+        <label class="control-label mb-2" asp-for="StatusTarefa"></label>
+        <select class="form-control" asp-for="StatusTarefa">
+            <option value="Pendente" selected>Pendente</option>
+            <option value="Concluida">Concluída</option>
+        </select>
     </div>
     <button type="submit" class="btn btn-primary">Salvar</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>

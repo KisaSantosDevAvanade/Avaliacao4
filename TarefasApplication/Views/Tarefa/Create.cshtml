@@ -1,4 +1,7 @@
 ﻿@model Tarefa
+@{
+    ViewData["Title"] = "Criar tarefa";
+}
 
 <h2> Adicionar Tarefa </h2>
 
@@ -10,9 +13,21 @@
         <span asp-validation-for="TarefaNome" class="text-danger"></span>
     </div>
     <div class="form-group">
+        <label asp-for="InicioTarefa" class="control-label"></label>
+        <input asp-for="InicioTarefa" class="control-Label" />
+        <span asp-validation-for="ConclusaoTarefa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
         <label asp-for="ConclusaoTarefa" class="control-label"></label>
         <input asp-for="ConclusaoTarefa" class="control-Label" />
         <span asp-validation-for="ConclusaoTarefa" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label class="control-label mb-2" asp-for="StatusTarefa"></label>
+        <select class="form-control" asp-for="StatusTarefa">
+            <option value="Pendente" selected>Pendente</option>
+            <option value="Concluida">Concluída</option>
+        </select>
     </div>
     <button type="submit" class="btn btn-primary">Adicionar</button>
 </form>

@@ -1,14 +1,12 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<Tarefa>
 @{
+    ViewData["Title"] = "Tarefas Concluidas";
 }
-@model List<Tarefa>
 
 <h2>Lista de Tarefas Concluidas</h2>
 
 <p>
-    <a asp-action="Create">Adicionar Cliente</a>
+    <a asp-action="Create">Adicionar Tarefa</a>
 </p>
 
 <table class="table">
@@ -25,17 +23,18 @@
     <tbody>
         @foreach (var tarefa in Model)
         {
-            if (tarefa.StatusTarefa == true)
+            if (tarefa.StatusTarefa == "Concluida")
             {
                 <tr>
-                <td>@tarefa.TarefaId</td>
+                    <td>@tarefa.TarefaId</td>
                 <td>@tarefa.TarefaNome</td>
                 <td>@tarefa.StatusTarefa</td>
                 <td>@tarefa.InicioTarefa</td>
                 <td>@tarefa.ConclusaoTarefa</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@tarefa.TarefaId">Editar</a> |
-                    <a asp-action="Delete" asp-route-id="@tarefa.TarefaId">Deletar</a>
+                    <a asp-action="Delete" asp-route-id="@tarefa.TarefaId">Deletar</a> |
+                    <a asp-action="Details" asp-route-id="@tarefa.TarefaId">Detalhes</a>
                 </td>
             </tr>
             }
